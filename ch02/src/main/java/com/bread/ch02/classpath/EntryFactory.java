@@ -1,16 +1,16 @@
 package com.bread.ch02.classpath;
 
 
+import java.io.File;
 
 public class EntryFactory {
 
-    public static final String pathListSeparator = ";";
 
     private EntryFactory() {
     }
 
     public static Entry newEntry(String path){
-        if (path.contains(pathListSeparator)) {
+        if (path.contains(File.pathSeparator)) {
             return new CompositeEntry(path);
         }
         if (path.endsWith("*")) {
